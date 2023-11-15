@@ -42,10 +42,10 @@ const login = (mail, password) => {
 
   const logout = () => {
     setSplashLoading(true);
-    //setUserToken(null);
+    
     setUserInfo({});
     AsyncStorage.removeItem('userInfo');
-    //AsyncStorage.removeItem('userToken');
+    
     setSplashLoading(false);
     //console.log("paso por logout");
   }
