@@ -54,8 +54,9 @@ app.post("/tortas",Tortas.create);
 app.post("/api/tortas/:id", Tortas.update);
 app.delete("/api/tortas/:id", Tortas.delete);
 
-  // set port, listen for requests
+// set port, listen for requests
 const PORT = process.env.PORT || API_PORT;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
+const IP = process.env.IP || '192.168.1.3';
+app.listen(PORT, IP, () => {
+  console.log(`Server is running on ${IP}:${PORT}.`);
 });

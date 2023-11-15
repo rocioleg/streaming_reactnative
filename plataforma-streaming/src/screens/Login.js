@@ -5,15 +5,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {AuthContext} from '../context/AuthContext'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const Login = ({ navigation }) => {
   const [mail, setMail] = useState(null);
   const [password, setPassword] = useState(null);
+  const {isLoading, login} = useContext(AuthContext);
 
-  const {login} = useContext(AuthContext);
+  //const {login} = useContext(AuthContext);
   return (
     <View style={styles.container}>
+      <Spinner visible={isLoading} />
       <Text style={styles.login}>Login</Text>
 
       <View style={styles.email}>

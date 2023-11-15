@@ -10,20 +10,21 @@ import AppStack from './AppStack';
 import { AuthContext } from '../context/AuthContext';
 
 const AppNav = () => {
-    const {isLoading, userToken} = useContext(AuthContext);
+    const {splashLoading, userInfo} = useContext(AuthContext);
 
-    if(isLoading){
+    if(splashLoading){
         
      return(
         <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
             <ActivityIndicator size={'large'} />
+            <Text>Esperando...</Text>
         </View>
      );
     }
 
     return(
         <NavigationContainer>
-            {userToken !== null ? <AppStack /> : <AuthStack />}
+            {userInfo.token != null ? <AppStack /> : <AuthStack />}
         </NavigationContainer>
     );
 } 
